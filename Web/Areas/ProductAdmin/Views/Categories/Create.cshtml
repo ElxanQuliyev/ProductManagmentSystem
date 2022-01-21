@@ -1,0 +1,58 @@
+﻿@model Entities.Category
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Category</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IconUrl" class="control-label"></label>
+                <input  asp-for="IconUrl" type="hidden" class="form-control" />
+                <span asp-validation-for="IconUrl" class="text-danger"></span>
+                <div class="categoryIcon">
+                    <i class="fas fa-play"></i>
+                    <i class="fas fa-hospital-user"></i>
+                    <i class="fas fa-network-wired"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fas fa-project-diagram"></i>
+
+                </div>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsDeleted" /> @Html.DisplayNameFor(model => model.IsDeleted)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts{
+<script>
+    $(".categoryIcon i").click(function(){
+        $(".categoryIcon i").removeClass("active")
+        $(this).addClass("active")
+        const iconClass=$(this).attr("class");
+        $("#IconUrl").val(iconClass)
+    })
+</script>
+}

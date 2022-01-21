@@ -1,0 +1,33 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+.categoryIcon i{
+    padding:10px;
+    margin:10px;
+    border:1.5px solid #999;
+    cursor:pointer;
+    transition:.2s ease-in-out;
+}
+    .categoryIcon i.active{
+        background:green;
+        color:#fff;
+    }
+    .categoryIcon i:hover {
+        background: #222;
+        color: #fff;
+    }
